@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title%}Inicio{% endblock title %}
+{% block content %}
+<h1>Hello world!</h1>
+<a href="{{ url_for ('cadastrar') }}">Cadastrar Produto</a>
+<div style="display: flex;">
+{% if lista %}
+    {% for produto in lista %}
+    <div>
+        <p>Nome: {{ produto.nome }}</p>
+        <p>Preço: R${{ produto.preco }}</p>
+        <p>Quantidade: {{ produto.quantidade }}</p>
+        <img src="{{ produto.foto }}" alt="foto do produto" height="80px">
+    </div>
+    {% endfor %}
+{% else %}
+<h1>Nenhum produto cadastrado!!</h1>
+{% endif %}    
+</div>
+{% endblock content %}
